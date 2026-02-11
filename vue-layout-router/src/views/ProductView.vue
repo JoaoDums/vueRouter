@@ -1,8 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { toast } from 'vue3-toastify'
+import { useToast } from 'vue-toast-notification'
 
-const count = ref(0)  
+//foram feitos incrementos e decrementos no contador, e quando o valor é incrementado, uma notificação de sucesso é exibida.  Se o valor for decrementado para 0, uma notificação de aviso é mostrada.
+const count = ref(0)
+const toast = useToast()
+
+function increment() {
+  count.value++
+  toast.success(`Valor incrementado para ${count.value}`)
+}
 
 function decrement() {
 
